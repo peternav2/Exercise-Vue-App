@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=3, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navbarContainer {
+            max-width: 100%;
+            max-height: 10%;
+            background-color: hsl(125, 57%, 20%);
+
+            
+        }
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            width: 6%;
+            /* padding: 1.5%,1.5%; */
+            font-size:2em;
+            /* margin:0; */
+        }
+        .dropdownItems {
+            position: absolute;
+            display: none; /*this none will keep it hidden til the hover is hit */
+            background-color:#4CAF50;
+            min-width:7%;
+            z-index: 2;
+
+        }
+
+        .dropdownItems a {
+            color: black;
+            padding: .3%,.3%;
+            text-decoration: none;
+            display:block;
+            width:100%;
+        }
+
+
+        .dropdownItems a:hover {
+            background-color: greenyellow
+        }
+        .dropdown:hover .dropdownItems {
+            display: block;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(178, 215, 178);
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1.5em;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            width:100%;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class = "navbarContainer">
+        <div class = "dropdown">
+            <button>File</button>
+            <div class = "dropdownItems"> 
+                <a href="#" >asdf</a>
+                <a href="#" >asd</a>
+                <a href="#" >asdf</a>
+                <a href="#" >asdf</a>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
