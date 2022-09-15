@@ -16,17 +16,18 @@
         .dropdown {
             position: relative;
             display: inline-block;
-            width: 6%;
+            width: 10%;
             /* padding: 1.5%,1.5%; */
-            font-size:2em;
+            font-size:1.2em;
+            margin: 0;
+
         }
         .dropdownItems {
             position: absolute;
             display: none; /*this none will keep it hidden til the hover is hit */
             background-color:#4CAF50;
             width: 100%;
-            z-index: 2;
-            /* padding: .3%,.3%; */
+
         }
 
         .dropdownItems a {
@@ -34,11 +35,16 @@
             text-decoration: none;
             display:block;
             width:100%;
+            padding-top: .5%;
+            padding-bottom:.5%;
+            
         }
 
 
         .dropdownItems a:hover {
-            background-color: greenyellow
+            background-color: greenyellow;
+            text-align:center;
+            justify-content: center;
         }
         .dropdown:hover .dropdownItems {
             display: block;
@@ -50,26 +56,62 @@
             background-color: rgb(178, 215, 178);
         }
         button {
-            background-color: #4CAF50;
+            background-color: hsl(125, 57%, 20%);
             color: white;
-            padding: 1.5em;
-            font-size: 16px;
+            padding: em;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-size: 18px;
             border: none;
             cursor: pointer;
             width:100%;
-            
+            display: inline-block;      
+        }
+        button:hover {
+            background-color:#8cfe90
+        }
+
+        .onClick:focus-within .dropdownItems {
+            display: block;
         }
     </style>
 </head>
 <body>
     <div class = "navbarContainer">
         <div class = "dropdown">
-            <button>File</button>
+            <button><strong>File</strong></button>
             <div class = "dropdownItems"> 
-                <a href="#" >asdf</a>
-                <a href="#" >asd</a>
-                <a href="#" >asdf</a>
-                <a href="#" >asdf</a>
+                <a href="#">New</a>
+                <a href="#">Open</a>
+                <a href="#">Save</a>
+                <a href="#">Print</a>
+                <a href="#">Close</a>
+            </div>
+        </div>
+        <div class = "dropdown onClick">
+            <button>Edit</button>
+            <div class = "dropdownItems"> 
+                <a href="#">Undo</a>
+                <a href="#">Redo</a>
+                <a href="#">Cut</a>
+                <a href="#">Copy</a>
+                <a href="#">Paste</a>
+                <a href="#">Delete</a>
+                <a href="#">Select all</a>
+            </div>
+        </div>
+        <div class = "dropdown">
+            <button><strong>View</strong></button>
+            <div class = "dropdownItems"> 
+                <a href="#">Zoom in</a>
+                <a href="#">Zoom out</a>
+                <a href="#">Actual Size</a>
+                <a href="#">Fit Page</a>
+                <a href="#">Fit Width</a>
+                <a href="#">Fit Height</a>
+                <a href="#">Rotate Left</a>
+                <a href="#">Rotate Right</a>
+                <a href="#">Full Screen</a>
             </div>
         </div>
     </div>
