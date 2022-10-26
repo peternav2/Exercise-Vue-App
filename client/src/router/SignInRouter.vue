@@ -1,0 +1,66 @@
+
+<template>
+  <div class="box">
+    <form @submit.prevent="handleSubmit">
+        <label> Username:</label>
+        <input type="text" required v-model="userName">
+        <label> Full Name:</label>
+        <input type="text" required v-model="fullName">
+    </form>
+    <button @click="submitItems" class="button is-danger"> submit items</button>
+  </div>
+</template>
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "SignIn",
+  data() {
+    return {
+      userName: "",
+      fullName: "",
+    };
+  },
+  methods: {
+    submitItems() {
+      console.log("submitted");
+      this.$emit("saveLogin", this.userName, this.fullName);
+    },
+    handleSubmit() {
+      console.log("submit handled");
+    },
+  },
+});
+</script>
+<style>
+form {
+  max-width: 400px;
+  margin: 30px auto;
+  background: white;
+  text-align: left;
+  padding: 40px;
+  border-radius: 10px;
+}
+label {
+  color: #aaa;
+  display: inline-block;
+  margin: 25px 0 15px;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+input,
+select {
+  display: block;
+  width: 100%;
+  padding: 10px 6px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 0.8em;
+  color: #555;
+}
+
+</style>
