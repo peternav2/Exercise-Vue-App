@@ -15,7 +15,7 @@
         <input type="date" v-model="date">
 
         <label>Picture</label>
-        <input type="file" @change="submitForm" />
+        <input type="file" ref="imageFile" @change="fileRead" />
 
         <label>location</label>
         <input type="text">
@@ -25,6 +25,7 @@
     </div>
     <div class="box">
         <p>your posts</p>
+        <img :src=imageFile alt="">
         <div v-for="post in posts" :key="randomKey">
             <p>{{ post.workoutType }}</p>
             <p>{{ post.date }}</p>
@@ -46,26 +47,27 @@ export default ({
     data() {
         return {
             imageFile: '',
-            images: [],
             workoutType: '',
-            workouts: [],
             date: '',
-            dates: [],
             location: '',
-            locations: [],
             posts: [],
         };
     },
     methods: {
+        fileRead() {
+            const file = this.$refs.imageFile.files[0];
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                this.imageFile = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        },
         submitForm(e) {
-            const files = e.target.files
-            const reader = new FileReader()
-            reader.readAsDataURL(files[0])
-            reader.onload = () => (this.imageFile = reader.result)
-            this.images.push(this.imageFile)
-            this.workouts.push(this.workoutType)
-            this.dates.push(this.date)
-            this.locations.push(this.location)
+            // imageFile = this.$refs.myFile.files[0]
+            // if(!file || file.type.indexOf('image/') !== 0) return
+            // const reader = new FileReader()
+            // reader.readAsDataURL(files[0])
+            // reader.onload = () => (this.imageFile = reader.result)
             this.posts.push({
                 workoutType: this.workoutType,
                 date: this.date,
