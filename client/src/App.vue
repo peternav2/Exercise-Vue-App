@@ -1,13 +1,32 @@
 
-<script setup lang="ts">
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import NavBar from './components/NavBar.vue'; // import the component
+
+export default {
+  name: 'App',
+  data() {
+    return {
+      userName: '',
+      fullName: '',
+    };
+    },
+  components: {
+    NavBar,
+    RouterLink,
+    RouterView,
+  },
+  methods: {
+    saveLogin(userName: string, fullName: string) {
+      this.userName = userName;
+      this.fullName = fullName;
+    }
+  }
+};
 </script>
 <template>
   <NavBar />
-  <RouterView />
-  
-
+  <RouterView @saveLogin="saveLogin" :fullName="fullName" :userName="userName" />
 </template>
 
 

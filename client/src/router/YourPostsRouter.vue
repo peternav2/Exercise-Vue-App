@@ -3,10 +3,6 @@
         <p>this is in your posts</p>
         <h1 class="title">Your Posts</h1>
         <p class="subtitle">This is the page for your posts!</p>
-        <br>
-        <p>{{ userName }}</p>
-        <p>{{ fullName }}</p>
-
         <form>
         <label>Workout Type</label>
         <input type="text" v-model="workoutType">
@@ -18,25 +14,45 @@
         <input type="file" ref="imageFile" @change="fileRead" />
 
         <label>location</label>
-        <input type="text">
+        <input type="text" v-model="location">
 
         </form>
         <button class="button" @click="submitForm"> submit picture</button>
     </div>
     <div class="box">
         <p>your posts</p>
-        <img :src=imageFile alt="">
-        <div v-for="post in posts" :key="randomKey">
+        <!-- <img :src=imageFile alt=""> -->
+        <!-- <div v-for="post in posts" :key="randomKey">
+            <p>{{ userName }}</p>
+            <p>{{ fullName }}</p>
             <p>{{ post.workoutType }}</p>
             <p>{{ post.date }}</p>
             <p>{{ post.location }}</p>
             <img :src=post.image alt="post picture">
-            <img :src=imageFile alt="asdf">
-
+        </div> -->
+        <div class="card" v-for="post in posts" :key="randomKey">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img :src=post.image alt="post picture">
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                
+                    <div class="media-content">
+                        <p class="title is-4">{{fullName}}</p>
+                        <p class="subtitle is-6">@{{userName}}</p>
+                    </div>
+                </div>
+                <div class="content">
+                    <h3>Location: {{post.location}}</h3>
+                    <p>{{post.workoutType}}</p>
+                    <br>
+                    <p>{{this.date}}</p>
+                </div>
+            </div>
         </div>
     </div>
-
-
 </template>
 
 <script>
