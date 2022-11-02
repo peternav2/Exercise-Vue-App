@@ -40,8 +40,8 @@
                 <div class="media">
                 
                     <div class="media-content">
-                        <p class="title is-4">{{fullName}}</p>
-                        <p class="subtitle is-6">@{{userName}}</p>
+                        <p class="title is-4">{{}}</p>
+                        <p class="subtitle is-6">@{{User.getFull()}}</p>
                     </div>
                 </div>
                 <div class="content">
@@ -57,9 +57,10 @@
 
 <script>
 // i could not figure out how to upload an image with typescript so i had to enable javascript
+
+import {getFull} from "../stores/session"
 export default ({
     name: "YourPosts",
-    props: ["userName", "fullName"],
     data() {
         return {
             imageFile: '',

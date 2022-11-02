@@ -11,20 +11,22 @@
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from "vue";
-
+import { defineComponent, ref } from "vue";
+import { useUserStore } from "../stores/session"
 export default defineComponent({
   name: "SignIn",
   data() {
+
     return {
-      userName: "",
-      fullName: "",
+      userName: ref(''),
+      fullName: ref(''),
+    
     };
   },
   methods: {
     submitItems() {
       console.log("submitted");
-      this.$emit("saveLogin", this.userName, this.fullName);
+      useUserStore.
     },
     handleSubmit() {
       console.log("submit handled");
