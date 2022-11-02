@@ -30,7 +30,7 @@
             <p>{{ post.location }}</p>
             <img :src=post.image alt="post picture">
         </div> -->
-        <div class="card" v-for="post in posts" :key="randomKey">
+        <div class="card" v-for="post, x in posts" :key="x">
             <div class="card-image">
                 <figure class="image is-4by3">
                     <img :src=post.image alt="post picture">
