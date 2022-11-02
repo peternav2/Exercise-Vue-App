@@ -1,7 +1,7 @@
 
 <template>
   <div class="box">
-    <form @submit.prevent="handleSubmit">
+    <form @submit.prevent="submitItems">
         <label> Username:</label>
         <input type="text" required v-model="userName">
         <label> Full Name:</label>
@@ -9,30 +9,48 @@
     </form>
     <button @click="submitItems" class="button is-danger"> submit items</button>
   </div>
+
 </template>
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
-export default defineComponent({
-  name: "SignIn",
-  data() {
 
+export default {
+  name: "SignIn",
+  setup() {
+    const userName = ref("");
+    const fullName = ref("");
+    const user = useUserStore();
+    const submitItems = () => {
+      user.setNames(userName.value, fullName.value);
+    };
     return {
-      userName: ref(''),
-      fullName: ref(''),
-    
+      userName,
+      fullName,
+      submitItems,
     };
   },
-  methods: {
-    submitItems() {
-      console.log("submitted");
-      useUserStore.
-    },
-    handleSubmit() {
-      console.log("submit handled");
-    },
-  },
-});
+}
+// export default defineComponent({
+//   name: "SignIn",
+//   data() {
+
+//     return {
+//       userName: ref(''),
+//       fullName: ref(''),
+    
+//     };
+//   },
+//   methods: {
+//     submitItems() {
+//       console.log("submitted");
+//       useUserStore.
+//     },
+//     handleSubmit() {
+//       console.log("submit handled");
+//     },
+//   },
+// });
 </script>
 <style>
 form {

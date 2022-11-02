@@ -53,55 +53,95 @@
             </div>
         </div>
     </div>
+    <div class="box">
+    <p>{{user.fullName}}</p>
+    <p>{{user.userName}}</p>
+  </div>
 </template>
 
 <script>
 // i could not figure out how to upload an image with typescript so i had to enable javascript
 
-import {getFull} from "../stores/session"
-export default ({
+import { ref } from "vue";
+import { useUserStore } from "../stores/session"
+export default {
     name: "YourPosts",
-    data() {
+    setup() {
+        const workoutType = ref("");
+        const date = ref("");
+        const imageFile = ref("");
+        const location = ref("");
+        const user = useUserStore();
+        const posts = ref([]);
+        const submitForm = () => {
+            user.setPost(workoutType.value, date.value, imageFile.value, location.value);
+            posts.value = user.getPosts();
+        };
+        const fileRead = () => {
+            const file = document.querySelector('input[type=file]').files[0];
+            const reader = new FileReader();
+            reader.addEventListener("load", () => {
+                imageFile.value = reader.result;
+            }, false);
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+        };
         return {
-            imageFile: '',
-            workoutType: '',
-            date: '',
-            location: '',
-            posts: [],
+            workoutType,
+            date,
+            imageFile,
+            location,
+            submitForm,
+            fileRead,
+            posts,
+            user
         };
     },
-    methods: {
-        fileRead() {
-            const file = this.$refs.imageFile.files[0];
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                this.imageFile = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        },
-        submitForm(e) {
-            // imageFile = this.$refs.myFile.files[0]
-            // if(!file || file.type.indexOf('image/') !== 0) return
-            // const reader = new FileReader()
-            // reader.readAsDataURL(files[0])
-            // reader.onload = () => (this.imageFile = reader.result)
-            this.posts.push({
-                workoutType: this.workoutType,
-                date: this.date,
-                location: this.location,
-                image: this.imageFile,
-            })
-            this.imageFile = ''
-            this.workoutType = ''
-            this.date = ''
-            this.location = ''
+}
+// export default ({
+//     name: "YourPosts",
+//     data() {
+//         return {
+//             imageFile: '',
+//             workoutType: '',
+//             date: '',
+//             location: '',
+//             posts: [],
+//         };
+//     },
+//     methods: {
+//         fileRead() {
+//             const file = this.$refs.imageFile.files[0];
+//             const reader = new FileReader();
+//             reader.onload = (e) => {
+//                 this.imageFile = e.target.result;
+//             };
+//             reader.readAsDataURL(file);
+//         },
+//         submitForm(e) {
+//             // imageFile = this.$refs.myFile.files[0]
+//             // if(!file || file.type.indexOf('image/') !== 0) return
+//             // const reader = new FileReader()
+//             // reader.readAsDataURL(files[0])
+//             // reader.onload = () => (this.imageFile = reader.result)
+//             this.posts.push({
+//                 workoutType: this.workoutType,
+//                 date: this.date,
+//                 location: this.location,
+//                 image: this.imageFile,
+//             })
+//             this.imageFile = ''
+//             this.workoutType = ''
+//             this.date = ''
+//             this.location = ''
 
-        },
-        randomKey() {
-            return (new Date()).getTime() + Math.floor(Math.random() * 10000).toString()
-        }
-    },
-});
+//         },
+//         randomKey() {
+//             return (new Date()).getTime() + Math.floor(Math.random() * 10000).toString()
+//         }
+//     },
+// });
 
 </script>
 
