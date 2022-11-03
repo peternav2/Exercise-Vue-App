@@ -21,7 +21,7 @@ import { ref, computed } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', {
-    state: () => ({userName: '', fullName: ''}),
+    state: () => ({userName: ref(''), fullName: ref('')}),
     actions: {
         setNames(setUserName:string, setFullName:string) {
             this.userName = setUserName;
