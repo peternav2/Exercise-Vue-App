@@ -41,14 +41,14 @@
                 
                     <div class="media-content">
                         <p class="title is-4">{{}}</p>
-                        <p class="subtitle is-6">@{{User.getFull()}}</p>
+                        <p class="subtitle is-6">@{userfullname}</p>
                     </div>
                 </div>
                 <div class="content">
                     <h3>Location: {{post.location}}</h3>
                     <p>{{post.workoutType}}</p>
                     <br>
-                    <p>{{this.date}}</p>
+                    <p>{{date}}</p>
                 </div>
             </div>
         </div>
@@ -59,34 +59,42 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 // i could not figure out how to upload an image with typescript so i had to enable javascript
 
-import { ref } from "vue";
+import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
-export default {
+import type Post from "../stores/post"
+export default defineComponent({
     name: "YourPosts",
     setup() {
-        const workoutType = ref("");
+        const workoutType = ref("" as string);
         const date = ref("");
         const imageFile = ref("");
         const location = ref("");
         const user = useUserStore();
-        const posts = ref([]);
-        const submitForm = () => {
-            user.setPost(workoutType.value, date.value, imageFile.value, location.value);
-            posts.value = user.getPosts();
-        };
-        const fileRead = () => {
-            const file = document.querySelector('input[type=file]').files[0];
+        const posts = ref([] as Post[]);
+        const fileRead = (e: any) => {
+            const file = e.target.files[0];
             const reader = new FileReader();
-            reader.addEventListener("load", () => {
-                imageFile.value = reader.result;
-            }, false);
-            if (file) {
-                reader.readAsDataURL(file);
-            }
+            reader.readAsDataURL(file);
+            reader.onload = () => {
+                imageFile.value = reader.result as string;
+            };
         };
+        //make a function that will submit the form with typesafety
+        const submitForm = () => {
+            const post:Post = {
+                id:0,
+                workoutType: workoutType.value,
+                date: date.value,
+                image: imageFile.value,
+                location: location.value,
+            };
+            posts.value.push(post);
+            console.log(posts.value);
+        };
+
         return {
             workoutType,
             date,
@@ -97,8 +105,9 @@ export default {
             posts,
             user
         };
+
     },
-}
+});
 // export default ({
 //     name: "YourPosts",
 //     data() {
