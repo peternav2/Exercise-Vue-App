@@ -5,9 +5,6 @@
         <p class="subtitle">This is the home page for our exercise app!</p>
         <br>
 
-        <p> {{ userName }}</p>
-        <p>{{ fullName }}</p>
-
     </div>
 </template>
 
@@ -16,11 +13,5 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
     name: "Home",
-    props: ["userName", "fullName"],
-    data() {
-        return {};
-    },
-    methods: {
-    },
 });
 </script>

@@ -21,18 +21,9 @@
     </div>
     <div class="box">
         <p>your posts</p>
-        <!-- <img :src=imageFile alt=""> -->
-        <!-- <div v-for="post in posts" :key="randomKey">
-            <p>{{ userName }}</p>
-            <p>{{ fullName }}</p>
-            <p>{{ post.workoutType }}</p>
-            <p>{{ post.date }}</p>
-            <p>{{ post.location }}</p>
-            <img :src=post.image alt="post picture">
-        </div> -->
         <div class="card" v-for="post, x in posts" :key="x">
-            <div class="card-image">
-                <figure class="image is-4by3">
+            <div class="workoutImage">
+                <figure class="image workoutImage">
                     <img :src=post.image alt="post picture">
                 </figure>
             </div>
@@ -40,15 +31,15 @@
                 <div class="media">
                 
                     <div class="media-content">
-                        <p class="title is-4">{{}}</p>
-                        <p class="subtitle is-6">@{userfullname}</p>
+                        <p class="title is-4">{{user.fullName}}</p>
+                        <p class="subtitle is-6">@{{user.userName}}</p>
                     </div>
                 </div>
                 <div class="content">
                     <h3>Location: {{post.location}}</h3>
                     <p>{{post.workoutType}}</p>
                     <br>
-                    <p>{{date}}</p>
+                    <p>{{post.date}}</p>
                 </div>
             </div>
         </div>
@@ -60,8 +51,6 @@
 </template>
 
 <script lang="ts">
-// i could not figure out how to upload an image with typescript so i had to enable javascript
-
 import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
 import type Post from "../stores/post"
@@ -74,6 +63,10 @@ export default defineComponent({
         const location = ref("");
         const user = useUserStore();
         const posts = ref([] as Post[]);
+
+        //this method reads the file on file change but this poses a problem when 
+        //attempting to post two images in a row due to the @change
+        //solution idea to empty image form after submit
         const fileRead = (e: any) => {
             const file = e.target.files[0];
             const reader = new FileReader();
@@ -108,55 +101,14 @@ export default defineComponent({
 
     },
 });
-// export default ({
-//     name: "YourPosts",
-//     data() {
-//         return {
-//             imageFile: '',
-//             workoutType: '',
-//             date: '',
-//             location: '',
-//             posts: [],
-//         };
-//     },
-//     methods: {
-//         fileRead() {
-//             const file = this.$refs.imageFile.files[0];
-//             const reader = new FileReader();
-//             reader.onload = (e) => {
-//                 this.imageFile = e.target.result;
-//             };
-//             reader.readAsDataURL(file);
-//         },
-//         submitForm(e) {
-//             // imageFile = this.$refs.myFile.files[0]
-//             // if(!file || file.type.indexOf('image/') !== 0) return
-//             // const reader = new FileReader()
-//             // reader.readAsDataURL(files[0])
-//             // reader.onload = () => (this.imageFile = reader.result)
-//             this.posts.push({
-//                 workoutType: this.workoutType,
-//                 date: this.date,
-//                 location: this.location,
-//                 image: this.imageFile,
-//             })
-//             this.imageFile = ''
-//             this.workoutType = ''
-//             this.date = ''
-//             this.location = ''
-
-//         },
-//         randomKey() {
-//             return (new Date()).getTime() + Math.floor(Math.random() * 10000).toString()
-//         }
-//     },
-// });
-
 </script>
 
 <style scoped>
-    img {
-        width: 400px;
-        height: 400px;
+    .workoutImage {
+        width: 480px;
+        height: 640px;
+
+        /* center this div */
+        margin: 0 auto;
     }
 </style>
