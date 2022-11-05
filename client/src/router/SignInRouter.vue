@@ -31,26 +31,6 @@ export default {
     };
   },
 }
-// export default defineComponent({
-//   name: "SignIn",
-//   data() {
-
-//     return {
-//       userName: ref(''),
-//       fullName: ref(''),
-    
-//     };
-//   },
-//   methods: {
-//     submitItems() {
-//       console.log("submitted");
-//       useUserStore.
-//     },
-//     handleSubmit() {
-//       console.log("submit handled");
-//     },
-//   },
-// });
 </script>
 <style>
 form {
