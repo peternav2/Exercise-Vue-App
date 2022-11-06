@@ -1,32 +1,33 @@
-
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { RouterLink, RouterView } from 'vue-router'
+import { useUserStore } from "./stores/session"
 import NavBar from './components/NavBar.vue'; // import the component
 
-export default {
-  name: 'App',
-  data() {
-    return {
-      userName: '',
-      fullName: '',
-    };
+export default defineComponent({
+    name: 'App',
+    components: {
+        NavBar,
+        RouterLink,
+        RouterView
     },
-  components: {
-    NavBar,
-    RouterLink,
-    RouterView,
-  },
-  methods: {
-    saveLogin(userName: string, fullName: string) {
-      this.userName = userName;
-      this.fullName = fullName;
+    setup() {
+        const user = useUserStore();
+        return {
+          user
+        }
     }
-  }
-};
+});
 </script>
+
 <template>
   <NavBar />
-  <RouterView @saveLogin="saveLogin" :fullName="fullName" :userName="userName" />
+  <RouterView/>
+  <div class="box">
+    @{{user.userName}}
+    <br>
+    {{user.fullName}}
+  </div>
 </template>
 
 

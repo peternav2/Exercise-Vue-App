@@ -1,4 +1,4 @@
 #client/.gitignore
 client/node_modules
-node_modules
 client/dist
+node_modules
