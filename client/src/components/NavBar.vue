@@ -24,6 +24,7 @@
         <div class="navbar-start">
           <router-link :to="{name: 'Home'}" class="button has-background-success-light"> Home </router-link>
           <router-link :to="{name: 'YourPosts'}" class=" button has-background-success-light"> Your Posts </router-link>
+          <router-link :to="{name: 'Products'}" class=" button has-background-success-light"> Products </router-link>
         </div>
   
         <div class="navbar-end">
