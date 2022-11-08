@@ -54,10 +54,12 @@
 import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
 import type Post from "../stores/post"
+import { getPosts, addPost } from "../stores/post";
         const post = ref({} as Post)
-        // const imageFile = ref("");
         const user = useUserStore();
-        const posts = ref([] as Post[]);
+        const posts = getPosts();
+
+        
         //this method reads the file on file change but this poses a problem when 
         //attempting to post two images in a row due to the @change
         //solution idea to empty image form after submit
@@ -69,11 +71,15 @@ import type Post from "../stores/post"
                 post.value.image = reader.result as string;
             };
         };
+
+
         //make a function that will submit the form with typesafety
         const submitForm = () => {
-            posts.value.push(post.value);
+            addPost(post.value);
             post.value = {};
         };
+
+
 </script>
 
 <style scoped>
