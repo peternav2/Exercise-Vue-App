@@ -5,16 +5,16 @@
         <p class="subtitle">This is the page for your posts!</p>
         <form>
         <label>Workout Type</label>
-        <input type="text" v-model="workoutType">
+        <input type="text" v-model="post.workoutType">
 
         <label>Date</label>
-        <input type="date" v-model="date">
+        <input type="date" v-model="post.date">
 
         <label>Picture</label>
         <input type="file" ref="imageFile" @change="fileRead" />
 
         <label>location</label>
-        <input type="text" v-model="location">
+        <input type="text" v-model="post.location">
 
         </form>
         <button class="button" @click="submitForm"> submit picture</button>
@@ -50,20 +50,14 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
 import type Post from "../stores/post"
-export default defineComponent({
-    name: "YourPosts",
-    setup() {
-        const workoutType = ref("" as string);
-        const date = ref("");
-        const imageFile = ref("");
-        const location = ref("");
+        const post = ref({} as Post)
+        // const imageFile = ref("");
         const user = useUserStore();
         const posts = ref([] as Post[]);
-
         //this method reads the file on file change but this poses a problem when 
         //attempting to post two images in a row due to the @change
         //solution idea to empty image form after submit
@@ -72,42 +66,20 @@ export default defineComponent({
             const reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = () => {
-                imageFile.value = reader.result as string;
+                post.value.image = reader.result as string;
             };
         };
         //make a function that will submit the form with typesafety
         const submitForm = () => {
-            const post:Post = {
-                id:0,
-                workoutType: workoutType.value,
-                date: date.value,
-                image: imageFile.value,
-                location: location.value,
-            };
-            posts.value.push(post);
-            console.log(posts.value);
+            posts.value.push(post.value);
+            post.value = {};
         };
-
-        return {
-            workoutType,
-            date,
-            imageFile,
-            location,
-            submitForm,
-            fileRead,
-            posts,
-            user
-        };
-
-    },
-});
 </script>
 
 <style scoped>
     .workoutImage {
         width: 480px;
         height: 640px;
-
         /* center this div */
         margin: 0 auto;
     }
