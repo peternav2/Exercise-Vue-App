@@ -10,16 +10,14 @@
 <script setup lang="ts">
 import { getWorkouts, getWorkout, type Workout} from '../stores/workouts'
 import { reactive, ref} from 'vue'
-import day, { addWorkoutItem } from '../stores/workoutItem'
+import { addWorkoutItem } from '../stores/workoutItem'
 import { DayOfWeek } from '../stores/day';
 
 
     const workouts = reactive([] as Workout[])
     getWorkouts().then( x => workouts.push(...x.workouts))
 
-    // function addWorkoutToDay(workout: Workout) {
-    //     addWorkoutToDay(workout)
-    // }
+
 </script>
 
 <style scoped>
