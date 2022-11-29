@@ -6,5 +6,5 @@ export interface WorkoutItem {
     reps: number;
 }
 
-const workoutWeek = reactive([] as unknown as WorkoutItem)// why is this unknown as WorkoutItem?
+const workoutWeek = reactive([] as WorkoutItem[])// why is this unknown as WorkoutItem?
 

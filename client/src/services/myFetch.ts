@@ -6,6 +6,8 @@ export default function myFetch<T>(url: string, data: any = null, method?: strin
             'Content-Type': 'application/json',
         },
         body: data ? JSON.stringify(data) : undefined, // where does body come from
+        
     };
+    console.log("here2")
     return fetch(API_ROOT + url, options).then( x=>x.json() );
 }

@@ -28,11 +28,14 @@ export const useUserStore = defineStore('user', {
 export async function api<T>(url: string, data: any = null, method?: string ){
     session.loading++;
     console.log(null);
+    console.log("here")
     try {
         return await myFetch<T>(url, data, method);
     } catch (error) {
         console.log(error as string);
+        
     }finally{
+        console.log("finally");
         session.loading--;
     }
     return {} as T;
