@@ -1,20 +1,22 @@
 {
-  "name": "2022WebHomePeter",
+  "name": "Web Home Peter",
   "version": "1.0.0",
   "description": "",
   "author": "Peter Navarrete",
   "license": "ISC",
-"scripts": {
-  "build": "npm i -ws && npm run build -ws",
-  "dev": "nodemon --watch server server/server.js",
-  "start": "node server/server.js"
-},
-"workspaces": [
-  "client"
-],
-
+  "scripts": {
+    "build": "npm i -ws && npm run build -ws",
+    "dev": "nodemon --watch server server/server.js",
+    "start": "node server/server.js"
+  },
+  "workspaces": [
+    "client"
+  ],
   "dependencies": {
     "express": "^4.18.2",
+    "nodemon": "^2.0.20"
+  },
+  "devDependencies": {
     "nodemon": "^2.0.20"
   }
 }
