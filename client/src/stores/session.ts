@@ -1,24 +1,18 @@
-// import { ref, computed } from 'vue'
-// import { defineStore } from 'pinia'
-
-// export interface User {
-//     userName: string;
-//     fullName: string;
-// }
-
-// export function createUser(userName: string, fullName: string ) {
-//     const User = {userName, fullName}
-//     console.log(User.fullName)
-//     console.log(User.userName)
-// }
-// export const getFull = function (user: User): string {
-//     return user.fullName as string
-// }
-
-
-// export default User;
-import { ref, computed } from 'vue'
+import myFetch from '@/services/myFetch';
+import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
+
+export interface User {
+    username: string;
+    fullName: string;
+    email: string;
+    password: string;
+}
+const session = reactive({
+    user: null as User | null,
+    loading: 0
+})
+
 
 export const useUserStore = defineStore('user', {
     state: () => ({userName: ref(''), fullName: ref('')}),
@@ -29,3 +23,16 @@ export const useUserStore = defineStore('user', {
         },
     },
 })
+
+export async function api<T>(url: string, data: any = null, method?: string ){
+    session.loading++;
+    console.log(null);
+    try {
+        return await myFetch<T>(url, data, method);
+    } catch (error) {
+        console.log(error as string);
+    }finally{
+        session.loading--;
+    }
+    return {} as T;
+}

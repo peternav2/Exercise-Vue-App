@@ -10,7 +10,7 @@ app
     res.status(200).send(workouts.getWorkouts());
     })
     .get('/:id', (req,res) => {
-        const id = req.params.id;
+        const id = +req.params.id;
         const workout = workouts.getWorkout(id);
         if (workout) {
             res.status(200).send(workout);
