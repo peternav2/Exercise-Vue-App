@@ -1,7 +1,6 @@
 <script setup lang="ts">
-    import day, { addWorkoutToDay } from '../stores/workoutItem'
-
-    const d = day
+    import { addWorkoutItem } from '../stores/workoutItem'
+    import { DayOfWeek } from '../stores/day';
 
     const { day2 } = defineProps<{
         day2: Date;
@@ -9,7 +8,7 @@
 </script>
 
 <template>
-    <div>
+    <!-- <div>
         <h1>{{ day2.getDay() }}</h1>
         <div class="container">
             <div class="columns">
@@ -21,7 +20,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </template>
 
 
