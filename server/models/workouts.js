@@ -6,7 +6,7 @@ function getWorkouts() {
 }
 
 function getWorkout(id) {
-    return data.workouts.find(w => w.id === id);
+    return data.workouts.find(w => w.workoutId === id);
 }
 
 module.exports = {

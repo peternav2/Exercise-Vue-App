@@ -12,29 +12,39 @@ export interface WorkoutItem {
     date: string;
 }
 
-const day = reactive([] as WorkoutItem[])
-export default day as WorkoutItem[];
+const workoutItems = reactive([] as WorkoutItem[])
+export default workoutItems
 
-export function load(date: string) {
-    api(`day/${session.user?.username}/${date}`).then((data) => {
-        day.splice(0,day.length, ...data as WorkoutItem[]);
+export function load() {
+    api(`workoutitems/${session.user?.username}`).then((data) => {
+        workoutItems.splice(0,workoutItems.length, ...data as WorkoutItem[]);
     });
 }
 
-watch(()=> session.user, ()=> load(new Date().getDay.toString()));
+watch(()=> session.user, load);
 
 export function addWorkoutItem(workout: Workout, sets: number, reps: number, date: string) {
-    api(`workoutItems/${session.user?.username}/${workout.workoutId}/${sets}/${reps}/${date}`).then((data) => {
-        const i = day.findIndex((item) => item.workout.workoutId === workout.workoutId);
-        if (i >= 0) {
-            day[i] = data as WorkoutItem;
-        } else {
-            day.unshift(data as WorkoutItem);
-        }
+    api(`workoutitems/asdf`, { workoutId: workout.workoutId, sets, reps, date }).then((data) => {
+        console.log("here3");
+        
+        // const i = workoutItems.findIndex((x) => +x.workout.workoutId === +workout.workoutId);
+        // console.log("here4");
+        // if (i != -1) {
+        //     workoutItems[i] = data as WorkoutItem;
+        //     console.log("here5");
+            
+        // } else {
+        //     workoutItems.unshift(data as WorkoutItem);
+        //     console.log("here6");
+            
+        // }
+        workoutItems.unshift(data as WorkoutItem);
+        console.log("here7");
+        console.log(workoutItems);
     });
 }
-
-
+// /${workout.workoutId}/${sets}/${reps}/${date}
+// {workoutId: workoutItem.workoutId, sets: workoutItem.sets, reps: workoutItem.reps, date: workoutItem.date}
 
 
 

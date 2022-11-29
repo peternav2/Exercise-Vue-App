@@ -3,13 +3,17 @@ const { getWorkout } = require('./workouts');
 const list = [];
 
 
+const getWorkoutItems = () =>{
+    return list;
+}
+
 const get = (id) => {
     return list
-    .filter((workoutItem) => workoutItem.id === id)
-    .map((workoutItem) => ({
-        ...workoutItem,
-        workout: getWorkout(workoutItem.workoutId)
-    }));
+        .filter((workoutItem) => workoutItem.id === id) // might be a bug with that workoutItem.id
+        .map((workoutItem) => ({
+            ...workoutItem,
+            workout: getWorkout(workoutItem.workoutId)
+        }));
 };
 
 /**
@@ -22,8 +26,7 @@ const get = (id) => {
  * @returns 
  */
 const add = (id, workoutId, sets, reps, day) => {
-    let workoutItem = list.find((workoutItem) => workoutItem.id === id
-                            && workoutItem.workoutId === workoutId);
+    let workoutItem = list.find((workoutItem) => workoutItem.id === id && workoutItem.workoutId === workoutId);
     if (workoutItem) {
         workoutItem.sets = sets;
         workoutItem.reps = reps;
@@ -35,4 +38,6 @@ const add = (id, workoutId, sets, reps, day) => {
     return {
         ...workoutItem, workoutItem: getWorkout(workoutId)
     }
-}
+};
+
+module.exports = {get, add}

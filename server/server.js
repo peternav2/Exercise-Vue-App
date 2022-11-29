@@ -6,7 +6,7 @@ const port = 3000;
 const hostname = '127.0.0.1';
 
 const workoutsController = require('./controllers/workouts');
-const workoutItemsController = require('./controllers/workoutItems');
+const workoutItemsController = require('./controllers/workoutitems');
 
 app.use((req, res, next) => {
 res.setHeader('Access-Control-Allow-Origin', '*');
