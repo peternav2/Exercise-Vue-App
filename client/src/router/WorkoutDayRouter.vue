@@ -2,8 +2,8 @@
     import WorkoutItem, { addWorkoutItem } from '../stores/workoutItem'
     import { DayOfWeek } from '../stores/day';
     import { getWorkouts, getWorkout, type Workout} from '../stores/workouts'
-    
-    
+    import  workoutsItems  from '../stores/workoutItem'
+    const list = workoutsItems;
 </script>
 
 <template>
@@ -12,9 +12,9 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-one-third">
-                    <div class="box" v-for="workout, i in day" :id="i.toString">
-                        <h2 class="title is-4">{{ workout.workout }}</h2>
-                        <p>{{ workout.sets }}</p>
+                    <div class="box" v-for="workoutItem, i in list" :id="i.toString()">
+                        <h2 class="title is-4">{{ workoutItem.workout }}</h2>
+                        <p>{{ workoutItem.sets }}</p>
                     </div>
                 </div>
             </div>
