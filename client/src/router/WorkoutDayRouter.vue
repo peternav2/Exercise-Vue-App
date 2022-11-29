@@ -1,7 +1,9 @@
 <script setup lang="ts">
-    import day, { addWorkoutToDay } from '../stores/day'
-
-    const d = day
+    import WorkoutItem, { addWorkoutItem } from '../stores/workoutItem'
+    import { DayOfWeek } from '../stores/day';
+    import { getWorkouts, getWorkout, type Workout} from '../stores/workouts'
+    
+    
 </script>
 
 <template>

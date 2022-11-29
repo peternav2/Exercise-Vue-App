@@ -1,7 +1,7 @@
 {
     "workouts": [
         {
-            "id": 1,
+            "workoutId": 1,
             "name": "Chest Press",
             "description": "Press a barbell up and down on a bench",
             "muscle_group": "Chest",
@@ -9,7 +9,7 @@
             "image": "https://personallevelfitness.com/wp-content/uploads/2018/08/Chest-Press-DB.jpg"
         },
         {
-            "id": 2,
+            "workoutId": 2,
             "name": "Squat",
             "description": "lift a barbell up and down while it rests on the back",
             "muscle_group": "Legs",
@@ -17,7 +17,7 @@
             "image": "https://weighttraining.guide/wp-content/uploads/2018/07/Bodyweight-squat-resized.png"
         },
         {
-            "id": 3,
+            "workoutId": 3,
             "name": "Pull Up",
             "description": "Grip a pull-up bar and pull yourself up then down",
             "muscle_group": "Chest",
@@ -25,7 +25,7 @@
             "image": "https://fitnessvolt.com/wp-content/uploads/2019/04/pull-up.jpg"
         },
         {
-            "id": 4,
+            "workoutId": 4,
             "name": "Push Up",
             "description": "Place hand and feet on the ground with a long straight body and push up",
             "muscle_group": "Chest",
@@ -33,7 +33,7 @@
             "image": "https://personallevelfitness.com/wp-content/uploads/2018/08/Chest-Press-DB.jpg"
         },
         {
-            "id": 5,
+            "workoutId": 5,
             "name": "Deadlift",
             "description": "With a barbell resting on the ground, stand hip width apart and lift the barbell up",
             "muscle_group": "Legs / Back",
@@ -41,7 +41,7 @@
             "image": "https://weighttraining.guide/wp-content/uploads/2016/05/Barbell-Deadlift-1.png?ezimgfmt=ng%3Awebp%2Fngcb4"
         },
         {
-            "id": 6,
+            "workoutId": 6,
             "name": "Swim",
             "description": "Swim in a pool for laps",
             "muscle_group": "Total Body",
@@ -49,7 +49,7 @@
             "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXSDlE87HFBiqESL11oXMs2XiPJ_6-NB2LSQ&usqp=CAU"
         },
         {
-            "id": 7,
+            "workoutId": 7,
             "name": "Row",
             "description": "Row with a rowing machine",
             "muscle_group": "Legs / Back",
@@ -57,7 +57,7 @@
             "image": "https://www.garagegymreviews.com/wp-content/uploads/RowingRoutine_3.jpeg"
         },
         {
-            "id": 8,
+            "workoutId": 8,
             "name": "Seated Row",
             "description": "Use a rowing machine to row heavier weight",
             "muscle_group": "Back",
@@ -65,7 +65,7 @@
             "image": "https://weighttraining.guide/wp-content/uploads/2017/01/Machine-one-arm-row-resized.png"
         },
         {
-            "id": 9,
+            "workoutId": 9,
             "name": "Sprint",
             "description": "Run for speed over a short distance for the shortest time",
             "muscle_group": "Legs / Core",
@@ -73,7 +73,7 @@
             "image": "https://outperformsports.com/wp-content/uploads/2020/01/proper-sprinting-form-the-hard-post.jpg"
         },
         {
-            "id": 10,
+            "workoutId": 10,
             "name": "Run",
             "description": "Jog or run for distance",
             "muscle_group": "Legs / Core",

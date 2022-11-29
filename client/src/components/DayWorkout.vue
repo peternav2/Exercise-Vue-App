@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import day, { addWorkoutToDay } from '../stores/day'
+    import day, { addWorkoutToDay } from '../stores/workoutItem'
 
     const d = day
 

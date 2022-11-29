@@ -6,7 +6,7 @@ const port = 3000;
 const hostname = '127.0.0.1';
 
 const workoutsController = require('./controllers/workouts');
-
+const workoutItemsController = require('./controllers/workoutItems');
 
 app.use((req, res, next) => {
 res.setHeader('Access-Control-Allow-Origin', '*');
@@ -27,7 +27,7 @@ app.get('/error', (req, res) => {
     res.status(404).send('Error');
 })
 .use('/api/v1/workouts', workoutsController)
-
+.use('/api/v1/workoutitems', workoutItemsController)
 
 app.get('*', (req, res) => {
     res.sendFile('index.html', { root: './client/dist' });

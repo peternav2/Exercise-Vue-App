@@ -17,7 +17,7 @@ export interface ListEnvelope<T> {
   }
 
 export interface Workout {
-    id: number;
+    workoutId: number;
     name: string;
     description: string;
     muscle_group: string;
