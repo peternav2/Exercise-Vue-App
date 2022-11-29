@@ -23,11 +23,11 @@ export default defineComponent({
 <template>
   <NavBar />
   <RouterView/>
-  <div class="box">
+  <!-- <div class="box">
     @{{user.userName}}
     <br>
     {{user.fullName}}
-  </div>
+  </div> -->
 </template>
 
 

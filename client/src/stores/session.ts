@@ -13,6 +13,7 @@ const session = reactive({
     loading: 0
 })
 
+export default session;
 
 export const useUserStore = defineStore('user', {
     state: () => ({userName: ref(''), fullName: ref('')}),
