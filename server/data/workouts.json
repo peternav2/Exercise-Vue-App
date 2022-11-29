@@ -26,8 +26,8 @@
         },
         {
             "id": 4,
-            "name": "Chest Press",
-            "description": "Press a barbell up and down on a bench",
+            "name": "Push Up",
+            "description": "Place hand and feet on the ground with a long straight body and push up",
             "muscle_group": "Chest",
             "category": "Weight",
             "image": "https://personallevelfitness.com/wp-content/uploads/2018/08/Chest-Press-DB.jpg"
