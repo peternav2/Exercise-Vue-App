@@ -4,7 +4,7 @@
         <h1 class="title">Home</h1>
         <p class="subtitle">This is the home page for our exercise app!</p>
         <br>
-        <div v-for="workout in workouts" :key="workout.id">
+        <div v-for="workout in workouts" :key="workout.workoutId">
             <p>{{ workout.description }}</p>
         </div>
 
