@@ -31,8 +31,10 @@
                         <h2 class="title is-4">Monday</h2>
                         <p v-for="item in Monday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -41,8 +43,10 @@
                         <h2 class="title is-4">Tuesday</h2>
                         <p v-for="item in Tuesday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -51,8 +55,10 @@
                         <h2 class="title is-4">Wednesday</h2>
                         <p v-for="item in Wednesday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -63,8 +69,10 @@
                         <h2 class="title is-4">Thursday</h2>
                         <p v-for="item in Thursday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -73,8 +81,10 @@
                         <h2 class="title is-4">Friday</h2>
                         <p v-for="item in Friday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -83,8 +93,10 @@
                         <h2 class="title is-4">Saturday</h2>
                         <p v-for="item in Saturday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>
@@ -95,8 +107,10 @@
                         <h2 class="title is-4">Sunday</h2>
                         <p v-for="item in Sunday" :key="item.workout.workoutId">
                             {{ item.workout.name }}
-                            {{ item.sets }}
-                            {{ item.reps }}
+                            <br>
+                            Sets: {{ item.sets }}
+                            <br>
+                            Reps: {{ item.reps }}
                         </p>
                     </div>
                 </div>

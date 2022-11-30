@@ -1,38 +1,40 @@
 <template>
-    <div>
-        <h1>workout day</h1>
-
-        <button @click.prevent="addWorkoutItem(workouts[i], 4, 12, DayOfWeek.Monday ); load();"></button>
-        <label>press to add</label>
-        <button @click="i++"></button>
-        <label>press to inc</label>
-        <p>{{ DayOfWeek.Monday }}</p>
-
-    </div>
-
-
+    <h1>workout day</h1>
+    
      <div>
         <form @submit.prevent="submitItems">
-        <label> Sets:</label>
-        <input type="text" required v-model="sets">
-        <label> Reps:</label>
-        <input type="text" required v-model="day">
-        <label> Workout Number:</label>
-        <input type="text" required v-model="workoutNumber">
-        <label>Day Of The Week</label>
-        <select v-model="dayofweek"> 
-            <option value="sunday">Sunday</option>
-            <option value="monday">Monday</option>
-            <option value="tuesday">Tuesday</option>
-            <option value="wednesday">Wednesday</option>
-            <option value="thursday">Thursday</option>
-            <option value="friday">Friday</option>
-            <option value="saturday">Saturday</option>
-        </select>
-    </form>
-    <button @click="submitItems" class="button is-danger"> submit items</button>
-    <hr>
-    <p>{{ dayofweek }}</p>
+            <label>Workout</label>
+            <select v-model="workoutNumber"> 
+                <option value="0">{{ workouts[0].name }}</option>
+                <option value="1">{{ workouts[1].name }}</option>
+                <option value="2">{{ workouts[2].name }}</option>
+                <option value="3">{{ workouts[3].name }}</option>
+                <option value="4">{{ workouts[4].name }}</option>
+                <option value="5">{{ workouts[5].name }}</option>
+                <option value="6">{{ workouts[6].name }}</option>
+                <option value="7">{{ workouts[7].name }}</option>
+                <option value="8">{{ workouts[8].name }}</option>
+                <option value="9">{{ workouts[9].name}}</option> 
+            </select> 
+            <label> Sets:</label>
+            <input type="text" required v-model="sets">
+            <label> Reps:</label>
+            <input type="text" required v-model="day">
+
+            <label>Day Of The Week</label>
+            <select v-model="dayofweek"> 
+                <option value="sunday">Sunday</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+            </select>
+        </form>
+        <button @click="submitItems" class="button is-danger"> submit items</button>
+        <hr>
+        <p>{{ dayofweek }}</p>
     </div> 
 </template>
 
