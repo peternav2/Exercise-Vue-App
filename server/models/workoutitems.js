@@ -3,10 +3,11 @@ const { getWorkout } = require('./workouts');
 const list = [];
 
 
-const getWorkoutItems = () =>{
+const getAllItems = () =>{
     return list;
 }
-
+//these gets will give quite loaded objects, cant be directly mapped onto WorkoutItem in stores
+//must do a mediary step where you selectively pick what you want from the object
 const get = (id) => {
     return list
         .filter((workoutItem) => workoutItem.id === id) // might be a bug with that workoutItem.id
@@ -40,4 +41,4 @@ const add = (id, workoutId, sets, reps, day) => {
     }
 };
 
-module.exports = {get, add}
+module.exports = {get, add, getAllItems}
