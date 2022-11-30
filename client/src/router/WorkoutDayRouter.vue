@@ -15,6 +15,7 @@
                     <div class="box" v-for="workoutItem, i in list" :id="i.toString()">
                         <h2 class="title is-4">{{ workoutItem.workout.name }}</h2>
                         <p>{{ workoutItem.sets }}</p>
+                        <p>{{ workoutItem.day}}</p>
                     </div>
                 </div>
             </div>
