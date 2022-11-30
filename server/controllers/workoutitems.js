@@ -11,7 +11,7 @@ app
 });
 
 app.post('/:id', (req, res) => {
-    res.send(add(req.params.id, +req.body.workoutId, +req.body.sets, +req.body.reps));
+    res.send(add(req.params.id, +req.body.workoutId, +req.body.sets, +req.body.reps, req.body.day));
 });
 
 module.exports = app
