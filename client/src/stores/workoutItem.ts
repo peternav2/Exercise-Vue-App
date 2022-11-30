@@ -26,10 +26,7 @@ watch(()=> session.user, load);
 export function addWorkoutItem(workout: Workout, sets: number, reps: number, date: string) {
     api(`workoutitems/${session.user?.username}`, { workoutId: workout.workoutId, sets, reps, date }).then((data) => {
         console.log("here3");
-        
-
-     
-        workoutItems.unshift(data as WorkoutItem);
+        workoutItems.push(data as WorkoutItem);
         console.log("here7");
         console.log(workoutItems);
     });
