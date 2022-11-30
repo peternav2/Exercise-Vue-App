@@ -1,6 +1,6 @@
  
 interface Day {
-    date: Date;
+    date: string;
 }
 
 export enum DayOfWeek {
