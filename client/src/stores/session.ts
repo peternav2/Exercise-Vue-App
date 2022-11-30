@@ -2,19 +2,6 @@ import myFetch from '@/services/myFetch';
 import { ref, computed, reactive } from 'vue'
 import { defineStore } from 'pinia'
 
-export interface User {
-    username: string;
-    fullName: string;
-    email: string;
-    password: string;
-}
-const session = reactive({
-    user: null as User | null,
-    loading: 0
-})
-
-export default session;
-
 export const useUserStore = defineStore('user', {
     state: () => ({userName: ref(''), fullName: ref('')}),
     actions: {
@@ -24,6 +11,22 @@ export const useUserStore = defineStore('user', {
         },
     },
 })
+export interface User {
+    username: string;
+    fullname: string;
+
+}
+const session = reactive({
+    user: null as User | null,
+    loading: 0
+});
+
+export default session;
+
+export function login(username: string, fullname: string) {
+    session.user = {username, fullname};
+
+}
 
 export async function api<T>(url: string, data: any = null, method?: string ){
     session.loading++;

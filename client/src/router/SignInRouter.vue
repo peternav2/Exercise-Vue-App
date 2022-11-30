@@ -14,7 +14,7 @@
 <script lang="ts">
 import { defineComponent, ref } from "vue";
 import { useUserStore } from "../stores/session"
-
+import { login } from "../stores/session";
 export default {
   name: "SignIn",
   setup() {
@@ -23,6 +23,7 @@ export default {
     const user = useUserStore();
     const submitItems = () => {
       user.setNames(userName.value, fullName.value);
+      login(userName.value, fullName.value);
     };
     return {
       userName,

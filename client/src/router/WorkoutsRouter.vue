@@ -2,8 +2,12 @@
     <div>
         <h1>workout day</h1>
 
-        <button @click.prevent="addWorkoutItem(workouts[0], 4, 12, DayOfWeek.Monday)"></button>
+        <button @click.prevent="addWorkoutItem(workouts[i], 4, 12, DayOfWeek.Monday)"></button>
+        <label>press to add</label>
+        <button @click="i++"></button>
+        <label>press to inc</label>
         <p>{{( workouts[0])}}</p>
+
     </div>
 </template>
 
@@ -13,7 +17,7 @@ import { reactive, ref} from 'vue'
 import { addWorkoutItem } from '../stores/workoutItem'
 import { DayOfWeek } from '../stores/day';
 
-
+    let i = 0;
     const workouts = reactive([] as Workout[])
     getWorkouts().then( x => workouts.push(...x.workouts))
 
