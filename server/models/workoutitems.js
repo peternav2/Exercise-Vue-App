@@ -21,8 +21,10 @@ async function collection() {
 
 
 
-const getAllItems = () =>{
-    return list;
+const getAllItems = async () =>{
+    const db = await collection();
+    const workoutItems = await db.find().toArray();
+    return workoutItems;
 }
 //these gets will give quite loaded objects, cant be directly mapped onto WorkoutItem in stores
 //must do a mediary step where you selectively pick what you want from the object
