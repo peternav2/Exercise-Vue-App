@@ -12,7 +12,7 @@ export interface WorkoutItem {
     day: string;
 }
 
-const workoutItems = reactive([] as WorkoutItem[])
+const workoutItems = reactive([] as WorkoutItem[]);
 export default workoutItems
 
 export function load() {
