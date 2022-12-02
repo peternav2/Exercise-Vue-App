@@ -1,0 +1,23 @@
+
+http://127.0.0.1:3000/api/v1/workouts/
+
+###
+POST http://127.0.0.1:3000/api/v1/workouts/seed
+
+
+###
+http://127.0.0.1:3000/api/v1/workouts/6
+
+###
+http://127.0.0.1:3000/api/v1/cart/mp@np
+
+###
+POST http://127.0.0.1:3000/api/v1/cart/mp@np
+Content-Type: application/json
+
+{
+    "quantity": 1,
+    "productId": 9
+}
+###
+PATCH http://127.0.0.1:3000/api/v1/cart/mp@np.edu/6/5

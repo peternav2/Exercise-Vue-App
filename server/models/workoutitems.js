@@ -1,6 +1,24 @@
 const { getWorkout } = require('./workouts');
-
+const { connect,  } = require('./mongo');
+const COLLECTIONNAME = 'workoutitems';
 const list = [];
+
+async function collection() {
+    const client = await connect();
+    return client.db('WebHome').collection(COLLECTIONNAME);
+}
+
+
+ const get = async (userId) => {
+    const db = await collection();
+    const workoutItems = await db.find({ userId }).toArray();
+    return workoutItems
+        .map((workoutItem) => ({
+            ...workoutItem,
+            workout: getWorkout(workoutItem.workoutId)
+        }));
+};
+
 
 
 const getAllItems = () =>{
@@ -8,14 +26,14 @@ const getAllItems = () =>{
 }
 //these gets will give quite loaded objects, cant be directly mapped onto WorkoutItem in stores
 //must do a mediary step where you selectively pick what you want from the object
-const get = (id) => {
-    return list
-        .filter((workoutItem) => workoutItem.id === id) // might be a bug with that workoutItem.id
-        .map((workoutItem) => ({
-            ...workoutItem,
-            workout: getWorkout(workoutItem.workoutId)
-        }));
-};
+// const get = (id) => {
+//     return list
+//         .filter((workoutItem) => workoutItem.id === id) // might be a bug with that workoutItem.id
+//         .map((workoutItem) => ({
+//             ...workoutItem,
+//             workout: getWorkout(workoutItem.workoutId)
+//         }));
+// };
 
 /**
  * 
@@ -24,21 +42,14 @@ const get = (id) => {
  * @param {number} sets 
  * @param {number} reps 
  * @param {string} day
+ * @param {string} userId
  * @returns 
  */
-const add = (id, workoutId, sets, reps, day) => {
-    let workoutItem = list.find((workoutItem) => workoutItem.id === id && workoutItem.workoutId === workoutId);
-    if (workoutItem) {
-        workoutItem.sets = sets;
-        workoutItem.reps = reps;
-        workoutItem.day = day;
-    } else {
-        workoutItem = { id, workoutId, sets, reps, day };
-        list.push(workoutItem);
-    }
-    return {
-        ...workoutItem, workoutItem: getWorkout(workoutId)
-    }
+const add = async (workoutItem) => {
+        const db = await collection();
+        const result = await db.insertOne(workoutItem);
+        workoutItem._id = result.insertedId;
+        return workoutItem;
 };
 
 module.exports = {get, add, getAllItems}

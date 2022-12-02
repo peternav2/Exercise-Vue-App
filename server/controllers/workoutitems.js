@@ -10,8 +10,9 @@ app
     res.send(get(req.params.id));
 });
 
-app.post('/:id', (req, res) => {
-    res.send(add(req.params.id, +req.body.workoutId, +req.body.sets, +req.body.reps, req.body.day));
+app.post('/', (req, res) => {
+    console.log(req.body);
+    const workoutItem = add(req.body).then(x => res.status(200).send(x));
 });
 
 module.exports = app
