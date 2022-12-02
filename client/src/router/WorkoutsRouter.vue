@@ -10,12 +10,12 @@
             <label> Sets:</label>
             <input type="text" required v-model="sets">
             <label> Reps:</label>
-            <input type="text" required v-model="day">
+            <input type="text" required v-model="reps">
 
             <label>Day Of The Week</label>
             <select v-model="dayofweek"> 
                 <!-- <option v-for="(d,i) in workouts" :key="i" :value="DayOfWeek">Sunday</option> -->
-                <option value="sunday">Monday</option>
+                <option value="sunday">Sunday</option>
                 <option value="monday">Monday</option>
                 <option value="tuesday">Tuesday</option>
                 <option value="wednesday">Wednesday</option>

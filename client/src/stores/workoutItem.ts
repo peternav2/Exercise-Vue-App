@@ -38,7 +38,7 @@ export function load() {
 watch(()=> session.user, load);
 
 export function addWorkoutItem(workout: Workout, sets: number, reps: number, day: string) {
-    api(`workoutitems/`, { userid: session.user?.username, workoutId: workout.workoutId, sets, reps, day }).then((data) => {
+    api(`workoutitems/`, { userid: session.user?.username, workout, sets, reps, day }).then((data) => {
         console.log("here3");
         workoutItems.push(data as WorkoutItem);
         console.log("here7");
