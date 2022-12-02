@@ -5,7 +5,7 @@
   "author": "Peter Navarrete",
   "license": "ISC",
   "scripts": {
-    "build": "npm i && cd client && npm i && npm run build",
+    "build": "npm i -ws && npm run build -ws",
     "dev": "nodemon --watch server server/server.js",
     "start": "node server/server.js"
   },
