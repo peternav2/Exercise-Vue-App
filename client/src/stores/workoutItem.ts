@@ -16,7 +16,10 @@ const workoutItems = reactive([] as WorkoutItem[])
 export default workoutItems
 
 export function load() {
+
     api(`workoutitems/${session.user?.username}`).then((data) => {
+        console.log(data);
+        
         workoutItems.splice(0,workoutItems.length, ...data as WorkoutItem[]);
     });
     
