@@ -12,11 +12,7 @@ async function collection() {
  const get = async (userId) => {
     const db = await collection();
     const workoutItems = await db.find({ userId }).toArray();
-    return workoutItems
-        .map((workoutItem) => ({
-            ...workoutItem,
-            workout: getWorkout(workoutItem.workoutId)
-        }));
+    return workoutItems.filter(x => x.userId === userId);
 };
 
 
