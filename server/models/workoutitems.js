@@ -8,11 +8,17 @@ async function collection() {
     return client.db('WebHome').collection(COLLECTIONNAME);
 }
 
-
- const get = async (userId) => {
+/**
+ * 
+ * @param {string} userid 
+ * @returns 
+ */
+ const get = async (userid) => {
     const db = await collection();
-    const workoutItems = await db.find({ userId }).toArray();
-    return workoutItems.filter(x => x.userId === userId);
+    console.log(userid);
+    const workoutItems = await db.find({userid: userid}).toArray();
+    console.log(workoutItems);
+    return workoutItems;
 };
 
 
@@ -33,16 +39,7 @@ const getAllItems = async () =>{
 //         }));
 // };
 
-/**
- * 
- * @param {string} id 
- * @param {number} workoutId 
- * @param {number} sets 
- * @param {number} reps 
- * @param {string} day
- * @param {string} userId
- * @returns 
- */
+
 const add = async (workoutItem) => {
         const db = await collection();
         const result = await db.insertOne(workoutItem);

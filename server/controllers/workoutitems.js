@@ -4,10 +4,12 @@ const { get, add, getAllItems } = require('../models/workoutitems')
 const app = express.Router()
 app
 .get('/', (req, res) => {
-    res.send(getAllItems())
+    getAllItems()
+    .then(x => res.status(200).send(x))
 })
-.get('/:id', (req, res) => {
-    res.send(get(req.params.id));
+.get('/:userid', (req, res) => {
+    get(req.params.userid)
+    .then(x => res.status(200).send(x))
 });
 
 app.post('/', (req, res) => {

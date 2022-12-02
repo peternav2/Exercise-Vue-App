@@ -6,15 +6,6 @@
             <label>Workout</label>
             <select v-model="workoutNumber"> 
                 <option v-for="(w,i) in workouts" :key="i" :value="i">{{ w.name }}</option>
-                <!-- <option value="1">{{ workouts[1].name }}</option>
-                <option value="2">{{ workouts[2].name }}</option>
-                <option value="3">{{ workouts[3].name }}</option>
-                <option value="4">{{ workouts[4].name }}</option>
-                <option value="5">{{ workouts[5].name }}</option>
-                <option value="6">{{ workouts[6].name }}</option>
-                <option value="7">{{ workouts[7].name }}</option>
-                <option value="8">{{ workouts[8].name }}</option>
-                <option value="9">{{ workouts[9].name}}</option>  -->
             </select> 
             <label> Sets:</label>
             <input type="text" required v-model="sets">
@@ -23,7 +14,8 @@
 
             <label>Day Of The Week</label>
             <select v-model="dayofweek"> 
-                <option value="sunday">Sunday</option>
+                <!-- <option v-for="(d,i) in workouts" :key="i" :value="DayOfWeek">Sunday</option> -->
+                <option value="sunday">Monday</option>
                 <option value="monday">Monday</option>
                 <option value="tuesday">Tuesday</option>
                 <option value="wednesday">Wednesday</option>
