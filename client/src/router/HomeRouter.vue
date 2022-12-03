@@ -1,12 +1,11 @@
 <template>
     <div class="box">
-        <p>this is in home</p>
-        <h1 class="title">Home</h1>
-        <p class="subtitle">This is the home page for our exercise app!</p>
+        <h1 class="title">Exercise Routine BuildeR</h1>
+        <p class="subtitle"> Build your own workout routine by going to the Workouts section and addings a workout</p>
         <br>
-        <div v-for="workout in workouts" :key="workout.workoutId">
-            <p>{{ workout.description }}</p>
-        </div>
+        <p> From there You can view the routine in the Workout Week Tab</p>
+        <br>
+        
 
     </div>
 </template>
