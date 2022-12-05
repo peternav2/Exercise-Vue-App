@@ -15,9 +15,9 @@ async function collection() {
  */
  const get = async (userid) => {
     const db = await collection();
-    console.log(userid);
+    // console.log(userid);
     const workoutItems = await db.find({userid: userid}).toArray();
-    console.log(workoutItems);
+    // console.log(workoutItems);
     return workoutItems;
 };
 
@@ -47,4 +47,11 @@ const add = async (workoutItem) => {
         return workoutItem;
 };
 
-module.exports = {get, add, getAllItems}
+const remove = async(workoutItem) => {
+    console.log(workoutItem);
+    const db = await collection();
+    const result = await db.deleteOne({userid: workoutItem.userid, workout: workoutItem.workout, sets: workoutItem.sets, reps: workoutItem.reps, day: workoutItem.day});
+    return result;
+};
+
+module.exports = {get, add, getAllItems, remove}
