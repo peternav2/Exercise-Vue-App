@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from './HomeRouter.vue'
-import SignIn from './SignInRouter.vue'
-import YourPosts from './YourPostsRouter.vue'
-import WorkoutWeek from './WorkoutWeekRouter.vue'
-import WorkoutDay from './WorkoutDayRouter.vue'
-import Workouts from './WorkoutsRouter.vue'
+import HomeView from '../views/HomeRouter.vue'
+import SignIn from '../views/SignInRouter.vue'
+import YourPosts from '../views/YourPostsRouter.vue'
+import WorkoutWeek from '../views/WorkoutWeekRouter.vue'
+import WorkoutDay from '../views/WorkoutDayRouter.vue'
+import Workouts from '../views/WorkoutsRouter.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), //what is this for?
   routes: [

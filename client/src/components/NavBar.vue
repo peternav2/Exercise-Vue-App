@@ -25,7 +25,7 @@
           <router-link :to="{name: 'Home'}" class="button has-background-success-light"> Home </router-link>
           <router-link :to="{name: 'YourPosts'}" class=" button has-background-success-light"> Your Posts </router-link>
           <router-link :to="{name: 'WorkoutWeek'}" class=" button has-background-success-light"> Week Workout </router-link>
-          <router-link :to="{name: 'WorkoutDay'}" class=" button has-background-success-light"> Day Workout </router-link>
+          <router-link :to="{name: 'WorkoutDay'}" class=" button has-background-success-light"> All Workouts </router-link>
           <router-link :to="{name: 'Workouts'}" class=" button has-background-success-light"> Workouts </router-link>
 
 
