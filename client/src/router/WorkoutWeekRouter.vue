@@ -3,7 +3,7 @@
     import type WorkoutItem  from '../stores/workoutItem'
     import { DayOfWeek } from '../stores/day';
     import { getWorkouts, getWorkout, type Workout} from '../stores/workouts'
-    import  workoutsItems, { load }  from '../stores/workoutItem'
+    import  workoutsItems, { load, remove }  from '../stores/workoutItem'
     import { computed, reactive } from 'vue';
     const list = workoutsItems;
 
@@ -36,6 +36,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>
@@ -49,6 +52,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>
@@ -62,6 +68,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>
@@ -77,6 +86,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>
@@ -90,6 +102,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                             
                         </p>
                     </div>
@@ -104,6 +119,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>
@@ -119,6 +137,9 @@
                             Sets: {{ item.sets }}
                             <br>
                             Reps: {{ item.reps }}
+                            <br>
+                            <button @click="remove(item)"></button>
+                            <label>remove workout</label>
                         </p>
                     </div>
                 </div>

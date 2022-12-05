@@ -46,5 +46,12 @@ export function addWorkoutItem(workout: Workout, sets: number, reps: number, day
     });
 }
 
+export function remove(workoutItem: WorkoutItem) {
+    api(`workoutitems/`,{workoutItem}, 'DELETE').then(() => {
+        const index = workoutItems.indexOf(workoutItem);
+        workoutItems.splice(index, 1);
+    });
+}
+
 
 
