@@ -1,7 +1,7 @@
 <template>
     <div class="box">
-        <h1 class="title">Exercise Routine BuildeR</h1>
-        <p class="subtitle"> Build your own workout routine by going to the Workouts section and addings a workout</p>
+        <h1 class="title">Exercise Routine Builder</h1>
+        <p class="subtitle"> First log in then build your own workout routine by going to the Workouts section and addings a workout</p>
         <br>
         <p> From there You can view the routine in the Workout Week Tab</p>
         <br>
