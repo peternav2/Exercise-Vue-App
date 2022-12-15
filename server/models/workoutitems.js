@@ -22,7 +22,6 @@ async function collection() {
 };
 
 
-
 const getAllItems = async () =>{
     const db = await collection();
     const workoutItems = await db.find().toArray();
