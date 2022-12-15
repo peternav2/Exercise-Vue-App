@@ -6,6 +6,9 @@ export function getWorkouts() {
 export function getWorkout(id: number) {
     return api<Workout>(`workouts/${id}`);
 }
+export function getFilteredWorkouts(search: string) {
+    return api<ListEnvelope<Workout>>(`workouts/search/${search}`);
+}
 
 // export interface Workouts {
 //     workouts: Workout[];

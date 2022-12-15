@@ -1,6 +1,5 @@
 const express = require('express');
 const workouts = require('../models/workouts');
-
 const app = express.Router();
 
 
@@ -14,6 +13,17 @@ app
     .get('/:id', (req,res,next) => {
         workouts.getWorkout(+req.params.id)
         .then(workout => {
+            if (workout) {
+                res.status(200).send(workout);
+            } else {
+                res.status(404).send('Workout not found');
+            }
+        })
+        .catch(next);
+    })
+    .get('/search/:search', (req,res,next) => {
+        workouts.getFiltered(req.params.search)
+        .then (workout => {
             if (workout) {
                 res.status(200).send(workout);
             } else {

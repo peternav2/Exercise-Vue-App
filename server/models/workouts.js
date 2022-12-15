@@ -20,8 +20,15 @@ async function getWorkout(workoutId) {
     const db = await collection();
     // const workout = await db.findOne({ _id: new ObjectId(workoutId) });
     const workout = await db.findOne({ workoutId: workoutId });
-    // console.log(workout);
     return workout;
+}
+//this function isnt getting filtered results,
+//it is getting none of the workouts from the search in the request
+async function getFiltered(name) {
+    const db = await collection();
+    const filtered = await db.find({ name: name }).toArray();
+    console.log(filtered);
+    return filtered;
 }
 
 async function seed() {
@@ -35,5 +42,6 @@ module.exports = {
     COLLECTIONNAME,
     collection,
     getWorkouts,
-    getWorkout
+    getWorkout,
+    getFiltered
 };

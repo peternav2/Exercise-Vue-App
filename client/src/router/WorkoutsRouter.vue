@@ -1,8 +1,28 @@
 <template>
     <h1>workout day</h1>
-    
-     <div>
+    <div>
+        <h1>Search For a Workout</h1>
+        <section>
+            <p class="content"><b>Selected:</b> {{ selected }}</p>
+            <o-field label="Find a JS framework">
+                <o-autocomplete
+                    v-model="name"
+                    rounded
+                    expanded
+                    placeholder="e.g. jQuery"
+                    icon="search"
+                    clearable
+                    :data="data"
+                    @select="(option:null) => (selected = option)"
+                >
+                    <template #empty>No results found</template>
+                 </o-autocomplete>
+            </o-field>
+        </section>
+    </div>
+    <div>
         <form @submit.prevent="submitItems">
+
             <label>Workout</label>
             <select v-model="workoutNumber"> 
                 <option v-for="(w,i) in workouts" :key="i" :value="i">{{ w.name }}</option>
@@ -31,11 +51,24 @@
 </template>
 
 <script setup lang="ts">
-import { getWorkouts, getWorkout, type Workout} from '../stores/workouts'
-import { reactive, ref} from 'vue'
-import { addWorkoutItem } from '../stores/workoutItem'
-import { DayOfWeek } from '../stores/day';
-import { load } from '../stores/workoutItem'
+    import { getWorkouts, getWorkout, getFilteredWorkouts, type Workout} from '../stores/workouts'
+    import { reactive, ref, defineComponent, computed} from 'vue'
+    import { addWorkoutItem } from '../stores/workoutItem'
+    import { DayOfWeek } from '../stores/day';
+    import { load } from '../stores/workoutItem'
+
+    const name = ref("" as string);
+    const selected = ref(null);
+    const data = ref([] as string[]);
+
+  //this was the function I was going to use to map the workouts to the data array
+    function getFiltered() {
+        return getFilteredWorkouts(name.value).then(x => data.value.push(...x.workouts.map(x => x.name)));
+    };
+
+
+
+
 
     const workouts = reactive([] as Workout[])
     getWorkouts().then( x => workouts.push(...x.workouts))
@@ -51,9 +84,6 @@ import { load } from '../stores/workoutItem'
     const submitItems = () => {
       addWorkoutItem(workouts[+workoutNumber.value], +sets.value, +reps.value, dayofweek.value);
     };
-
-   
-
 </script>
 
 <style scoped>
