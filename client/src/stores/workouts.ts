@@ -6,6 +6,7 @@ export function getWorkouts() {
 export function getWorkout(id: number) {
     return api<Workout>(`workouts/${id}`);
 }
+//this sends an API call that would return a list of workouts that match the search
 export function getFilteredWorkouts(search: string) {
     return api<ListEnvelope<Workout>>(`workouts/search/${search}`);
 }
