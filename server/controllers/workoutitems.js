@@ -11,7 +11,6 @@ app
     get(req.params.userid)
     .then(x => res.status(200).send(x))
 });
-
 app.post('/', (req, res) => {
     console.log(req.body);
     const workoutItem = add(req.body).then(x => res.status(200).send(x));
